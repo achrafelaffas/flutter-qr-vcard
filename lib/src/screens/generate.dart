@@ -1,9 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:qr_king/src/constents/images.dart';
 import 'package:vcard_maintained/vcard_maintained.dart';
-
+import 'package:fluttertoast/fluttertoast.dart';
 import '../constents/colors.dart';
 import '../constents/sizes.dart';
 import 'details.dart';
@@ -244,11 +243,14 @@ class _MyFormState extends State<MyForm> {
                               MaterialPageRoute(builder: (context) {
                             return Details(vCard: vCard);
                           }));
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                                content:
-                                    Text('Qr code generated successfully!')),
-                          );
+                          Fluttertoast.showToast(
+                              msg: "qr code is ready",
+                              toastLength: Toast.LENGTH_SHORT,
+                              gravity: ToastGravity.BOTTOM,
+                              timeInSecForIosWeb: 2,
+                              backgroundColor: tDarkColor,
+                              textColor: Colors.white,
+                              fontSize: 16.0);
                         }
                       },
                       style: OutlinedButton.styleFrom(

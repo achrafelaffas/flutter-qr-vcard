@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:qr_king/src/constents/colors.dart';
 import 'package:qr_king/src/screens/style.dart';
 
 class OtherResult extends StatelessWidget {
@@ -12,7 +13,7 @@ class OtherResult extends StatelessWidget {
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     return Scaffold(
-        backgroundColor: AppStyle.primaryColor,
+        backgroundColor: tSecondaryColor,
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -28,6 +29,8 @@ class OtherResult extends StatelessWidget {
               SizedBox(
                 width: 300.0,
                 child: TextFormField(
+                  minLines: 9,
+                  maxLines: 10,
                   initialValue: result,
                   textAlign: TextAlign.center,
                   style: const TextStyle(

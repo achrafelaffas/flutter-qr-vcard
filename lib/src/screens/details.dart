@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:qr_flutter/qr_flutter.dart';
@@ -128,6 +129,15 @@ class _DetailsState extends State<Details> {
                     if (image == null) return;
 
                     await saveImage(image);
+
+                    Fluttertoast.showToast(
+                        msg: "saved to gallery",
+                        toastLength: Toast.LENGTH_SHORT,
+                        gravity: ToastGravity.BOTTOM,
+                        timeInSecForIosWeb: 2,
+                        backgroundColor: tDarkColor,
+                        textColor: Colors.white,
+                        fontSize: 16.0);
                   },
                   style: ElevatedButton.styleFrom(
                       foregroundColor: tSecondaryColor,

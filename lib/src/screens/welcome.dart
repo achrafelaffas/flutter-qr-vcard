@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:qr_king/src/constents/colors.dart';
 import 'package:qr_king/src/constents/images.dart';
@@ -47,6 +48,15 @@ class _WelcomeState extends State<Welcome> {
           return OtherResult(result: string);
         }));
       }
+
+      Fluttertoast.showToast(
+          msg: "scanned succefully",
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.BOTTOM,
+          timeInSecForIosWeb: 2,
+          backgroundColor: tDarkColor,
+          textColor: Colors.white,
+          fontSize: 16.0);
     });
   }
 
@@ -133,7 +143,18 @@ class _WelcomeState extends State<Welcome> {
                     children: [
                       Expanded(
                         child: ElevatedButton(
-                            onPressed: () => scanQR(),
+                            onPressed: () {
+                              scanQR();
+
+                              Fluttertoast.showToast(
+                                  msg: "qr code is ready",
+                                  toastLength: Toast.LENGTH_SHORT,
+                                  gravity: ToastGravity.BOTTOM,
+                                  timeInSecForIosWeb: 2,
+                                  backgroundColor: tDarkColor,
+                                  textColor: Colors.white,
+                                  fontSize: 16.0);
+                            },
                             style: ElevatedButton.styleFrom(
                                 foregroundColor: tDarkColor,
                                 backgroundColor: tWhiteColor,
