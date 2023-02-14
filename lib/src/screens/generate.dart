@@ -44,39 +44,30 @@ class _MyFormState extends State<MyForm> {
   Widget build(BuildContext context) {
     return Scaffold(
         // backgroundColor: Colors.orangeAccent,
-        // appBar: AppBar(
-        //   title: Text(
-        //     "Generate",
-        //     style: TextStyle(color: Colors.white),
-        //   ),
-        // ),
+        appBar: AppBar(
+          elevation: 0,
+          centerTitle: true,
+          backgroundColor: tSecondaryColor,
+          title: Text(
+            "Generate",
+            style: TextStyle(color: Colors.white),
+          ),
+        ),
         // ignore: avoid_unnecessary_containers
         body: Form(
             key: _formKey,
             child: Container(
-              decoration: BoxDecoration(color: Colors.white),
+              decoration: BoxDecoration(color: tSecondaryColor),
               // margin: EdgeInsets.only(top: 60, bottom: 30, left: 15, right: 15),
               padding: EdgeInsets.all(20.0),
               child: ListView(
                 children: [
-                  Image(
-                    image: AssetImage(formImage),
-                    width: 100,
-                    height: 100,
-                  ),
                   SizedBox(
-                    height: 15,
-                  ),
-                  Center(
-                    child: Text(
-                      "generate QR",
-                      style: Theme.of(context).textTheme.headlineMedium,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 55,
+                    height: 20,
                   ),
                   TextFormField(
+                    style: TextStyle(color: Colors.white),
+                    cursorColor: tPrimaryColor,
                     controller: _firstNameController,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
@@ -91,10 +82,7 @@ class _MyFormState extends State<MyForm> {
                       return null;
                     },
                     textInputAction: TextInputAction.next,
-                    decoration: InputDecoration(
-                        hintText: 'enter your first name',
-                        labelText: 'First Name',
-                        border: OutlineInputBorder()),
+                    decoration: InputStyle,
                   ),
                   SizedBox(
                     height: 20,
@@ -115,6 +103,15 @@ class _MyFormState extends State<MyForm> {
                     },
                     textInputAction: TextInputAction.next,
                     decoration: InputDecoration(
+                        floatingLabelStyle: TextStyle(color: tPrimaryColor),
+                        focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: tPrimaryColor)),
+                        enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                          color: tWhiteColor,
+                        )),
+                        hintStyle: TextStyle(color: tWhiteColor),
+                        labelStyle: TextStyle(color: tWhiteColor),
                         hintText: 'enter your last name',
                         labelText: 'Last Name',
                         border: OutlineInputBorder()),
@@ -133,7 +130,16 @@ class _MyFormState extends State<MyForm> {
                     textInputAction: TextInputAction.next,
                     keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
-                        hintText: 'Enter your email',
+                        floatingLabelStyle: TextStyle(color: tPrimaryColor),
+                        focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: tPrimaryColor)),
+                        enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                          color: tWhiteColor,
+                        )),
+                        hintStyle: TextStyle(color: tWhiteColor),
+                        labelStyle: TextStyle(color: tWhiteColor),
+                        hintText: 'enter your email',
                         labelText: 'Email',
                         border: OutlineInputBorder()),
                   ),
@@ -154,7 +160,16 @@ class _MyFormState extends State<MyForm> {
                     textInputAction: TextInputAction.next,
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
-                        hintText: 'Enter your phone number',
+                        floatingLabelStyle: TextStyle(color: tPrimaryColor),
+                        focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: tPrimaryColor)),
+                        enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                          color: tWhiteColor,
+                        )),
+                        hintStyle: TextStyle(color: tWhiteColor),
+                        labelStyle: TextStyle(color: tWhiteColor),
+                        hintText: 'enter your Phone',
                         labelText: 'Phone',
                         border: OutlineInputBorder()),
                   ),
@@ -174,8 +189,17 @@ class _MyFormState extends State<MyForm> {
                     },
                     textInputAction: TextInputAction.next,
                     decoration: InputDecoration(
-                        hintText: 'Enter your address',
-                        labelText: 'Address',
+                        floatingLabelStyle: TextStyle(color: tPrimaryColor),
+                        focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: tPrimaryColor)),
+                        enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                          color: tWhiteColor,
+                        )),
+                        hintStyle: TextStyle(color: tWhiteColor),
+                        labelStyle: TextStyle(color: tWhiteColor),
+                        hintText: 'enter your Address ',
+                        labelText: 'Address ',
                         border: OutlineInputBorder()),
                   ),
                   SizedBox(
@@ -185,8 +209,17 @@ class _MyFormState extends State<MyForm> {
                     controller: _photoController,
                     textInputAction: TextInputAction.send,
                     decoration: InputDecoration(
-                        hintText: 'Url of photo',
-                        labelText: 'Photo',
+                        floatingLabelStyle: TextStyle(color: tPrimaryColor),
+                        focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: tPrimaryColor)),
+                        enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                          color: tWhiteColor,
+                        )),
+                        hintStyle: TextStyle(color: tWhiteColor),
+                        labelStyle: TextStyle(color: tWhiteColor),
+                        hintText: 'enter your picture link',
+                        labelText: 'Picture',
                         border: OutlineInputBorder()),
                   ),
                   SizedBox(
@@ -215,13 +248,14 @@ class _MyFormState extends State<MyForm> {
                       },
                       style: OutlinedButton.styleFrom(
                           foregroundColor: tSecondaryColor,
-                          side: BorderSide(color: tSecondaryColor),
+                          side: BorderSide(color: tWhiteColor),
                           padding:
                               EdgeInsets.symmetric(vertical: tButtonHeight),
                           shape: ContinuousRectangleBorder()),
                       child: Text(
                         'Submit'.toUpperCase(),
-                        style: TextStyle(fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, color: tWhiteColor),
                       )),
                   SizedBox(
                     height: 16,
@@ -231,8 +265,8 @@ class _MyFormState extends State<MyForm> {
                         Navigator.pop(context);
                       },
                       style: ElevatedButton.styleFrom(
-                          foregroundColor: tWhiteColor,
-                          backgroundColor: tSecondaryColor,
+                          foregroundColor: tSecondaryColor,
+                          backgroundColor: tWhiteColor,
                           side: BorderSide(color: tSecondaryColor),
                           padding:
                               EdgeInsets.symmetric(vertical: tButtonHeight),

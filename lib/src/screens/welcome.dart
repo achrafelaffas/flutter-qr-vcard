@@ -84,34 +84,48 @@ class _WelcomeState extends State<Welcome> {
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     return Scaffold(
-        backgroundColor: Colors.white,
+        appBar: AppBar(
+          centerTitle: true,
+          elevation: 0,
+          backgroundColor: tSecondaryColor,
+          title: Text(
+            "Home",
+            style: TextStyle(color: Colors.white),
+          ),
+        ),
+        backgroundColor: tSecondaryColor,
         body: Container(
           padding: EdgeInsets.all(tDefaultSize),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Text(
-                "QR KING",
-                style: TextStyle(
-                    fontSize: 30,
-                    color: Colors.orange,
-                    fontWeight: FontWeight.bold),
-              ),
               Image(
                 image: AssetImage(welcome),
-                height: height * 0.5,
+                height: height * 0.4,
               ),
               Column(
                 children: [
                   Text(
                     WelcomeTitle,
-                    style: Theme.of(context).textTheme.headlineSmall,
+                    style: TextStyle(
+                        color: tWhiteColor,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 25),
+                  ),
+                  SizedBox(
+                    height: 5,
                   ),
                   Text(
                     WelcomeSubTitle,
-                    style: Theme.of(context).textTheme.bodySmall,
+                    style: TextStyle(
+                        color: tWhiteColor,
+                        fontWeight: FontWeight.normal,
+                        fontSize: 15),
                   ),
                 ],
+              ),
+              SizedBox(
+                height: 15,
               ),
               Column(
                 children: [
@@ -121,8 +135,8 @@ class _WelcomeState extends State<Welcome> {
                         child: ElevatedButton(
                             onPressed: () => scanQR(),
                             style: ElevatedButton.styleFrom(
-                                foregroundColor: tWhiteColor,
-                                backgroundColor: tSecondaryColor,
+                                foregroundColor: tDarkColor,
+                                backgroundColor: tWhiteColor,
                                 side: BorderSide(color: tSecondaryColor),
                                 padding: EdgeInsets.symmetric(
                                     vertical: tButtonHeight,
@@ -130,7 +144,7 @@ class _WelcomeState extends State<Welcome> {
                                 shape: ContinuousRectangleBorder()),
                             child: Text(
                               "Scan".toUpperCase(),
-                              style: TextStyle(color: Colors.orange),
+                              style: TextStyle(color: tDarkColor),
                             )),
                       ),
                       SizedBox(
@@ -144,17 +158,16 @@ class _WelcomeState extends State<Welcome> {
                                 return MyForm();
                               }));
                             },
-                            style: ElevatedButton.styleFrom(
+                            style: OutlinedButton.styleFrom(
                                 foregroundColor: tWhiteColor,
-                                backgroundColor: tSecondaryColor,
-                                side: BorderSide(color: tSecondaryColor),
+                                side: BorderSide(color: tWhiteColor),
                                 padding: EdgeInsets.symmetric(
                                     vertical: tButtonHeight,
                                     horizontal: tButtonWidth),
                                 shape: ContinuousRectangleBorder()),
                             child: Text(
                               "Generate".toUpperCase(),
-                              style: TextStyle(color: Colors.orange),
+                              style: TextStyle(color: tWhiteColor),
                             )),
                       ),
                     ],
@@ -164,7 +177,10 @@ class _WelcomeState extends State<Welcome> {
                   ),
                   Text(
                     "OR",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                    style: TextStyle(
+                        color: tWhiteColor,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15),
                   ),
                   TextButton(
                       onPressed: () => pickImage(),
@@ -172,13 +188,13 @@ class _WelcomeState extends State<Welcome> {
                         decoration: BoxDecoration(
                             border: Border(
                                 bottom: BorderSide(
-                          color: Colors.amber,
+                          color: tWhiteColor,
                           width: 1.0, // Underline thickness
                         ))),
                         child: Text(
                           "Scan code from image?",
                           style: TextStyle(
-                            color: Colors.amber,
+                            color: tWhiteColor,
                           ),
                         ),
                       ))

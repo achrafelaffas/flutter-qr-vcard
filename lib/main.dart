@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:qr_king/src/constents/colors.dart';
 import 'package:qr_king/src/screens/welcome.dart';
 
 void main() {
@@ -16,9 +17,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(
-        statusBarColor: Colors.white, // You can use this as well
+        systemNavigationBarColor: tSecondaryColor,
+        systemNavigationBarContrastEnforced: true,
+        statusBarColor: tSecondaryColor, // You can use this as well
         statusBarIconBrightness:
-            Brightness.dark, // OR Vice Versa for ThemeMode.dark
+            Brightness.light, // OR Vice Versa for ThemeMode.dark
         statusBarBrightness:
             Brightness.light, // OR Vice Versa for ThemeMode.dark
       ),
