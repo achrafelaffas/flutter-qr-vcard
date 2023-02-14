@@ -38,6 +38,16 @@ class _DetailsState extends State<Details> {
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     return Scaffold(
+      backgroundColor: tSecondaryColor,
+      appBar: AppBar(
+        centerTitle: true,
+        elevation: 0,
+        backgroundColor: tSecondaryColor,
+        title: Text(
+          "My QR code",
+          style: TextStyle(color: Colors.white),
+        ),
+      ),
       body: Container(
           padding: const EdgeInsets.all(20.0),
           child: ListView(
@@ -45,9 +55,68 @@ class _DetailsState extends State<Details> {
               Screenshot(
                 controller: controller,
                 child: Center(
-                  child:
-                      _buildQRImage(widget.vCard.getFormattedString(), height),
+                  child: _buildQRImage(widget.vCard.getFormattedString()),
                 ),
+              ),
+              SizedBox(
+                height: 50,
+              ),
+              Text(
+                'Email',
+                style: TextStyle(color: Colors.grey, letterSpacing: 2),
+              ),
+              SizedBox(height: 10),
+              Text(
+                "${widget.vCard.firstName} ${widget.vCard.lastName}",
+                style: TextStyle(
+                    color: Colors.orange,
+                    letterSpacing: 2,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Text(
+                'Email',
+                style: TextStyle(color: Colors.grey, letterSpacing: 2),
+              ),
+              SizedBox(height: 10),
+              Text(
+                widget.vCard.email[0],
+                style: TextStyle(
+                    color: Colors.orange,
+                    letterSpacing: 2,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: 20),
+              Text(
+                'Phone',
+                style: TextStyle(color: Colors.grey, letterSpacing: 2),
+              ),
+              SizedBox(height: 10),
+              Text(
+                widget.vCard.cellPhone[0],
+                style: TextStyle(
+                    color: Colors.orange,
+                    letterSpacing: 2,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: 20),
+              Text(
+                'Address',
+                style: TextStyle(color: Colors.grey, letterSpacing: 2),
+              ),
+              SizedBox(height: 10),
+              Text(
+                widget.vCard.homeAddress.street,
+                style: TextStyle(
+                    color: Colors.orange,
+                    letterSpacing: 2,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold),
               ),
               SizedBox(
                 height: 50,
@@ -61,9 +130,9 @@ class _DetailsState extends State<Details> {
                     await saveImage(image);
                   },
                   style: ElevatedButton.styleFrom(
-                      foregroundColor: tWhiteColor,
-                      backgroundColor: tSecondaryColor,
-                      side: BorderSide(color: tSecondaryColor),
+                      foregroundColor: tSecondaryColor,
+                      backgroundColor: tWhiteColor,
+                      side: BorderSide(color: tWhiteColor),
                       padding: EdgeInsets.symmetric(vertical: tButtonHeight),
                       shape: ContinuousRectangleBorder()),
                   child: Text('Save to gallery'.toUpperCase())),
@@ -75,8 +144,8 @@ class _DetailsState extends State<Details> {
                     Navigator.pop(context);
                   },
                   style: OutlinedButton.styleFrom(
-                      foregroundColor: tSecondaryColor,
-                      side: BorderSide(color: tSecondaryColor),
+                      foregroundColor: tWhiteColor,
+                      side: BorderSide(color: tWhiteColor),
                       padding: EdgeInsets.symmetric(vertical: tButtonHeight),
                       shape: ContinuousRectangleBorder()),
                   child: Text("GO BACK")),
@@ -86,18 +155,14 @@ class _DetailsState extends State<Details> {
   }
 }
 
-Widget _buildQRImage(String data, double h) {
-  return Container(
-      margin: EdgeInsets.only(top: h * 0.1),
-      decoration:
-          BoxDecoration(border: Border.all(color: Colors.orange, width: 2)),
-      child: QrImage(
-        data: data,
-        size: 300.0,
-        version: QrVersions.auto,
-        errorCorrectionLevel: QrErrorCorrectLevel.H,
-        gapless: false,
-        foregroundColor: Colors.black,
-        backgroundColor: Colors.white,
-      ));
+Widget _buildQRImage(String data) {
+  return QrImage(
+    data: data,
+    size: 200.0,
+    version: QrVersions.auto,
+    errorCorrectionLevel: QrErrorCorrectLevel.H,
+    gapless: false,
+    foregroundColor: Colors.black,
+    backgroundColor: Colors.white,
+  );
 }

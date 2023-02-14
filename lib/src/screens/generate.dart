@@ -88,6 +88,7 @@ class _MyFormState extends State<MyForm> {
                     height: 20,
                   ),
                   TextFormField(
+                    style: TextStyle(color: Colors.white),
                     controller: _lastNameController,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
@@ -120,6 +121,7 @@ class _MyFormState extends State<MyForm> {
                     height: 20,
                   ),
                   TextFormField(
+                    style: TextStyle(color: Colors.white),
                     controller: _emailController,
                     validator: (value) {
                       if (!EmailValidator.validate(value!)) {
@@ -147,6 +149,7 @@ class _MyFormState extends State<MyForm> {
                     height: 20,
                   ),
                   TextFormField(
+                    style: TextStyle(color: Colors.white),
                     controller: _phoneController,
                     validator: (value) {
                       if (value!.isEmpty) {
@@ -177,6 +180,7 @@ class _MyFormState extends State<MyForm> {
                     height: 20,
                   ),
                   TextFormField(
+                    style: TextStyle(color: Colors.white),
                     controller: _addressController,
                     validator: (value) {
                       if (value!.isEmpty) {
@@ -206,6 +210,7 @@ class _MyFormState extends State<MyForm> {
                     height: 20,
                   ),
                   TextFormField(
+                    style: TextStyle(color: Colors.white),
                     controller: _photoController,
                     textInputAction: TextInputAction.send,
                     decoration: InputDecoration(
