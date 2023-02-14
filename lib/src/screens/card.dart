@@ -26,6 +26,7 @@ class _MyCardState extends State<MyCard> {
 
   @override
   Widget build(BuildContext context) {
+    var height = MediaQuery.of(context).size.height;
     String Address(str, start, end) {
       final startIndex = str.indexOf(start);
       final endIndex = str.indexOf(end, startIndex + start.length);
@@ -63,29 +64,29 @@ class _MyCardState extends State<MyCard> {
       address = Address(widget.vcString, "ADR:", "TEL");
     }
     return Scaffold(
-      backgroundColor: Colors.white,
+      appBar: AppBar(
+        elevation: 0,
+        centerTitle: true,
+        backgroundColor: tSecondaryColor,
+        title: Text(
+          "card details",
+          style: TextStyle(color: Colors.white),
+        ),
+      ),
+      backgroundColor: tSecondaryColor,
       body: Padding(
         padding: EdgeInsets.fromLTRB(30, 40, 30, 0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             SizedBox(
-              height: 30,
-            ),
-            Center(
-              child: Text("VCard Details",
-                  style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w900,
-                      color: Colors.grey)),
-            ),
-            SizedBox(
-              height: 45,
+              height: 15,
             ),
             Center(
               child: CircleAvatar(
+                backgroundColor: Colors.orange,
                 backgroundImage: NetworkImage(photo),
-                radius: 100,
+                radius: 50,
               ),
             ),
             SizedBox(
@@ -97,11 +98,11 @@ class _MyCardState extends State<MyCard> {
                 style: TextStyle(
                     color: Colors.orange,
                     letterSpacing: 2,
-                    fontSize: 30,
+                    fontSize: 20,
                     fontWeight: FontWeight.bold),
               ),
             ),
-            SizedBox(height: 20),
+            SizedBox(height: height * 0.1),
             Text(
               'Email',
               style: TextStyle(color: Colors.grey, letterSpacing: 2),
@@ -144,7 +145,7 @@ class _MyCardState extends State<MyCard> {
                   fontWeight: FontWeight.bold),
             ),
             SizedBox(
-              height: 40,
+              height: height * 0.1,
             ),
             Row(
               children: [
@@ -172,7 +173,7 @@ class _MyCardState extends State<MyCard> {
                     style: ElevatedButton.styleFrom(
                         foregroundColor: tWhiteColor,
                         backgroundColor: tSecondaryColor,
-                        side: BorderSide(color: tSecondaryColor),
+                        side: BorderSide(color: tWhiteColor),
                         padding: EdgeInsets.symmetric(
                             vertical: tButtonHeight, horizontal: tButtonWidth),
                         shape: ContinuousRectangleBorder()),
@@ -202,7 +203,7 @@ class _MyCardState extends State<MyCard> {
                     style: ElevatedButton.styleFrom(
                         foregroundColor: tWhiteColor,
                         backgroundColor: tSecondaryColor,
-                        side: BorderSide(color: tSecondaryColor),
+                        side: BorderSide(color: tWhiteColor),
                         padding: EdgeInsets.symmetric(
                             vertical: tButtonHeight, horizontal: tButtonWidth),
                         shape: ContinuousRectangleBorder()),
@@ -229,7 +230,7 @@ class _MyCardState extends State<MyCard> {
                     style: ElevatedButton.styleFrom(
                         foregroundColor: tWhiteColor,
                         backgroundColor: tSecondaryColor,
-                        side: BorderSide(color: tSecondaryColor),
+                        side: BorderSide(color: tWhiteColor),
                         padding: EdgeInsets.symmetric(
                             vertical: tButtonHeight, horizontal: tButtonWidth),
                         shape: ContinuousRectangleBorder()),
@@ -252,7 +253,7 @@ class _MyCardState extends State<MyCard> {
                     style: ElevatedButton.styleFrom(
                         foregroundColor: tWhiteColor,
                         backgroundColor: tSecondaryColor,
-                        side: BorderSide(color: tSecondaryColor),
+                        side: BorderSide(color: tWhiteColor),
                         padding: EdgeInsets.symmetric(
                             vertical: tButtonHeight, horizontal: tButtonWidth),
                         shape: ContinuousRectangleBorder()),
